@@ -27,8 +27,10 @@ def main():
     st.markdown("`경제활동_통합 (1).csv` 파일의 데이터를 시각화합니다.")
 
     # --- 데이터 로드 ---
-    # CSV 파일의 전체 경로를 지정합니다.
-    file_path = r'd:\컴퓨터_공학부_202295004_김민석\AI 수업2\경제활동_통합 (1).csv'
+    # 스크립트가 있는 디렉터리를 기준으로 파일의 상대 경로를 절대 경로로 변환합니다.
+    # 이렇게 하면 어떤 환경에서 실행하든 파일 경로가 올바르게 설정됩니다.
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir, '경제활동_통합 (1).csv')
     df = load_data(file_path)
 
     if df is not None:
